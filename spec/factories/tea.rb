@@ -1,4 +1,4 @@
-Factorybot.define do
+FactoryBot.define do
   factory :tea do
     title { Faker::Tea.variety }
     description { Faker::Tea.type}
