@@ -8,6 +8,10 @@
 
 Rails RESTful Backend API that exposes tea subscription endpoints. 
 
+### **Database Schema**
+
+![Screen Shot 2023-01-11 at 12 33 49 PM](https://user-images.githubusercontent.com/102636892/212399380-2af63b16-eae0-4281-aa3a-9f5e9caa0455.png)
+
 ### **Create Subscription**
 
 POST `/create`
