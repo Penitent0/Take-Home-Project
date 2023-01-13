@@ -1,4 +1,4 @@
-# Take-Home Finale
+# Take-Home Tea Project
 
 ## Turing Backend Engineering Finale
 
