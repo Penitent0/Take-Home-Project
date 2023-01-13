@@ -20,6 +20,17 @@ RSpec.describe "subscriptions#index", type: :request do
 
       expect(response).to have_http_status(:success)
 
+      index = JSON.parse(response.body, symbolize_names: true)
+
+      expect(index).to be_a(Hash)
+      expect(index).to have_key(:data)
+      expect(index[:data]).to be_a(Hash)
+      expect(index[:data][:customer_id]).to eq(customer.id)
+      expect(index[:data][:subscriptions]).to be_a(Array)
+      index[:data][:subscriptions].each do |subscription|
+        expect(subscription).to be_a(Hash)
+        expect(subscription).to have_key(:attributes)
+      end
     end
   end
 end

@@ -10,7 +10,18 @@ Rails RESTful Backend API that exposes tea subscription endpoints.
 
 ### **Create Subscription**
 
-POST `/create>`
+POST `/create`
+
+```JSON
+{
+    "customer_id": 6,
+    "tea_id": 20,
+    "title": "test subscription",
+    "price": "12.99",
+    "status": "active",
+    "frequency": "weekly"
+}
+```
 
 **Example Response:**
 
@@ -34,6 +45,12 @@ POST `/create>`
 ### **Customer Subscriptions**
 
 GET '/index'
+
+```JSON 
+{
+    "customer_id": 6
+}
+```
 
 **Example Response:**
 
@@ -102,9 +119,12 @@ GET '/index'
 
 PATCH '/update'
 
-**Example Response:**
-
 ```JSON
-
-
+{
+    "subscription_id": 24,
+    "status": "cancelled"
+}
 ```
+
+**Returns Status 204 Updated Successfully**
+
