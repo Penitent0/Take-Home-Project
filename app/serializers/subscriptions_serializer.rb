@@ -35,4 +35,16 @@ class SubscriptionsSerializer
       }
     }
   end
+
+  def self.update(subscription)
+    {
+      data: {
+        id: subscription.id,
+        type: "Subscription",
+        attributes: {
+          status: subscription.status
+        }
+      }
+    }
+  end
 end

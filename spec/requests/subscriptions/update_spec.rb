@@ -13,13 +13,9 @@ RSpec.describe "subscriptions#update", type: :request do
       }
     end
 
-    it 'has successful response' do
-      patch api_v1_update_path
-      expect(response).to have_http_status(:success)
-    end
-
     it 'updates subscription status to cancelled' do
-      patch patch api_v1_update_path, params: valid_params
+      patch api_v1_update_path, params: valid_params
+      expect(response).to have_http_status(204)
     end
   end
 end

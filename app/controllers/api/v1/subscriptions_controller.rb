@@ -5,7 +5,7 @@ class Api::V1::SubscriptionsController < ApplicationController
   end
 
   def create
-    subscription = Subscription.new(customer_id: params[:customer_id], tea_id: params[:tea_id], title: params[:title], price: params[:price], status: params[:status], frequency: params[:frequency])
+    subscription = Subscription.new(subscription_params)
 
     if subscription.save
       render json: SubscriptionsSerializer.create(subscription), status: 201
@@ -15,6 +15,17 @@ class Api::V1::SubscriptionsController < ApplicationController
   end
 
   def update
-    require 'pry'; binding.pry
+    subscription = Subscription.find(params[:subscription_id])
+    if subscription.update(subscription_params)
+      render json: SubscriptionsSerializer.update(subscription), status: 204
+    else
+      render json: ErrorsSerializer.parse_errors(subscription.errors), status: 400
+    end
+  end
+
+  private 
+
+  def subscription_params
+    params.permit(:customer_id, :tea_id, :title, :price, :status, :frequency)
   end
 end
