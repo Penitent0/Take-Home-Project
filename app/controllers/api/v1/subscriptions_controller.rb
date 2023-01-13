@@ -1,5 +1,7 @@
 class Api::V1::SubscriptionsController < ApplicationController
   def index
+    customer = Customer.find(params[:customer_id])
+    render json: SubscriptionsSerializer.index(customer), status: 200
   end
 
   def create
@@ -12,6 +14,7 @@ class Api::V1::SubscriptionsController < ApplicationController
     end
   end
 
-  def update 
+  def update
+    require 'pry'; binding.pry
   end
 end
