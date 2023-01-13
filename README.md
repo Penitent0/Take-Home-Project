@@ -38,6 +38,7 @@ GET '/index'
 **Example Response:**
 
 ```JSON
+{
     "data": {
         "customer_id": 6,
         "customer_email": "helena_bartoletti@damore.name",
