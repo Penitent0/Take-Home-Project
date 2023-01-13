@@ -1,9 +1,9 @@
 class ErrorsSerializer 
-  def self.parse_error(error)
+  def self.parse_errors(errors)
     {
-      error: 
+      error: errors.full_messages.map do |error|
         {
-          message: error.message
+          message: error
         }
       end
     }
